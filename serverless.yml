@@ -1,0 +1,13 @@
+service: micro-test
+
+package:
+  artifact: function.zip
+
+functions:
+  test:
+    handler: not.used
+    runtime: provided
+    events:
+      - http:
+          path: /
+          method: GET
