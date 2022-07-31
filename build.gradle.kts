@@ -22,6 +22,7 @@ dependencies {
     implementation("jakarta.annotation:jakarta.annotation-api")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    implementation("software.amazon.awssdk:dynamodb:2.17.209")
     runtimeOnly("ch.qos.logback:logback-classic")
     compileOnly("org.graalvm.nativeimage:svm")
 
