@@ -1,7 +1,7 @@
 service: micro-test
 
 package:
-  artifact: function.zip
+  artifact: build/libs/demo-0.1-lambda.zip
 
 functions:
   test:
