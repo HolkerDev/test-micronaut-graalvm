@@ -3,6 +3,11 @@ service: micro-test
 package:
   artifact: build/libs/demo-0.1-lambda.zip
 
+provider:
+  name: aws
+  runtime: java11
+  region: eu-central-1
+
 functions:
   test:
     handler: not.used
