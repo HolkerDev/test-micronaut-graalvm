@@ -29,7 +29,7 @@ open class HomeController(@Inject private val homeService: HomeService) {
         logger.info("Yep! I'm actually logging stuff despite all this graalvm limitations!")
         val client = DynamoDbClient.create()
         client.putItem { builder ->
-            builder.tableName("graalvm").item(mapOf("pk" to AttributeValue.fromS("test")))
+            builder.tableName("graalvm").item(mapOf("pk" to AttributeValue.fromS("test"), "sk" to AttributeValue.fromS("none")))
         }
         return HttpResponse.badRequest(Message("Test message to show in json response!"))
     }
