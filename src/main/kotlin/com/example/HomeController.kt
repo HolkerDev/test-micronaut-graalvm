@@ -7,6 +7,8 @@ import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import jakarta.inject.Inject
 import org.slf4j.LoggerFactory
+import software.amazon.awssdk.services.dynamodb.DynamoDbClient
+import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 
 @Introspected
 data class Message(val message: String)
@@ -25,6 +27,10 @@ open class HomeController(@Inject private val homeService: HomeService) {
     @Get("/test")
     fun getTest(): HttpResponse<*> {
         logger.info("Yep! I'm actually logging stuff despite all this graalvm limitations!")
+        val client = DynamoDbClient.create()
+        client.putItem { builder ->
+            builder.tableName("graalvm").item(mapOf("pk" to AttributeValue.fromS("test")))
+        }
         return HttpResponse.badRequest(Message("Test message to show in json response!"))
     }
 }
