@@ -15,8 +15,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
-      - name: build project
-        run: ./gradlew buildNativeLambda -Pmicronaut.runtime=lambda
+#      - name: build project
+#        run: ./gradlew buildNativeLambda -Pmicronaut.runtime=lambda
+      - name: build optimized project
+        run: ./gradlew nativeOptimizedCompile
+      - name: zip
+        run: zip output/lambda.zip build/native/nativeOptimizedCompile/demo output/bootstrap
       - name: check dirs
         run: ls
       - name: serverless deploy

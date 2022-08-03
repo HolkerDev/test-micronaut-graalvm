@@ -1,7 +1,8 @@
 service: micro-test
 
 package:
-  artifact: build/libs/demo-0.1-lambda.zip
+#  artifact: build/libs/demo-0.1-lambda.zip
+  artifact: output/lambda.zip
 
 provider:
   name: aws
