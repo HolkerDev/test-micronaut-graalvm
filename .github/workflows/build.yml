@@ -26,7 +26,7 @@ jobs:
       - name: build optimized project
         run: ./gradlew nativeOptimizedCompile
       - name: zip
-        run: zip output/lambda.zip build/native/nativeOptimizedCompile/demo output/bootstrap
+        run: mv build/native/nativeOptimizedCompile/demo output/demo && cd output && zip lambda.zip demo bootstrap && cd ..
       - name: check dirs
         run: ls
       - name: serverless deploy
