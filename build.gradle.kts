@@ -38,7 +38,8 @@ dependencies {
 
 
 application {
-    mainClass.set("io.micronaut.function.aws.runtime.MicronautLambdaRuntime")
+    // mainClass.set("io.micronaut.function.aws.runtime.MicronautLambdaRuntime")
+    mainClass.set("com.example.DemoAppKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
