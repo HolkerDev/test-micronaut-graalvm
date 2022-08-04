@@ -77,7 +77,7 @@ micronaut {
     }
     aot {
         version.set("1.1.0")
-        // cacheEnvironment.set(true)
+        cacheEnvironment.set(true)
         optimizeServiceLoading.set(true)
         optimizeClassLoading.set(true)
         convertYamlToJava.set(true)
