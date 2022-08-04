@@ -57,6 +57,17 @@ tasks {
     }
 }
 graalvmNative.toolchainDetection.set(false)
+graalvmNative {
+    binaries {
+        named("main") {
+            buildArgs.addAll(listOf(
+                "-J--add-exports=org.graalvm.nativeimage.builder/com.oracle.svm.core.configure=ALL-UNNAMED",
+                "-J--add-exports=org.graalvm.nativeimage.builder/com.oracle.svm.core.jdk=ALL-UNNAMED",
+            ))
+        }
+    }
+}
+
 micronaut {
     runtime("lambda_provided")
     testRuntime("junit5")
