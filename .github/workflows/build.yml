@@ -17,6 +17,12 @@ jobs:
           aws-region: eu-central-1
 #      - name: build project
 #        run: ./gradlew buildNativeLambda -Pmicronaut.runtime=lambda
+      - name: Setup GraalVM
+        uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'latest'
+          java-version: '17'
+          components: 'native-image'
       - name: build optimized project
         run: ./gradlew nativeOptimizedCompile
       - name: zip
