@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt") version "1.6.21"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.6.21"
     id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("io.micronaut.application") version "3.4.1"
+    id("io.micronaut.application") version "3.5.1"
     // id("io.micronaut.graalvm") version "3.5.1"
     id("io.micronaut.aot") version "3.1.1"
 }
@@ -57,16 +57,16 @@ tasks {
     }
 }
 graalvmNative.toolchainDetection.set(false)
-graalvmNative {
-    binaries {
-        named("main") {
-            buildArgs.addAll(listOf(
-                "-J--add-exports=org.graalvm.nativeimage.builder/com.oracle.svm.core.configure=ALL-UNNAMED",
-                "-J--add-exports=org.graalvm.nativeimage.builder/com.oracle.svm.core.jdk=ALL-UNNAMED",
-            ))
-        }
-    }
-}
+// graalvmNative {
+//     binaries {
+//         named("main") {
+//             buildArgs.addAll(listOf(
+//                 "-J--add-exports=org.graalvm.nativeimage.builder/com.oracle.svm.core.configure=ALL-UNNAMED",
+//                 "-J--add-exports=org.graalvm.nativeimage.builder/com.oracle.svm.core.jdk=ALL-UNNAMED",
+//             ))
+//         }
+//     }
+// }
 
 micronaut {
     runtime("lambda_provided")
