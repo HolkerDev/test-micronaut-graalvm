@@ -1,4 +1,4 @@
-service: micro-test
+service: graalvm-kotlin
 
 package:
 #  artifact: build/libs/demo-0.1-lambda.zip
@@ -50,5 +50,5 @@ functions:
           path: /
           method: GET
       - http:
-          path: /test
+          path: /simple
           method: GET
