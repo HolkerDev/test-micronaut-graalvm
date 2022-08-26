@@ -21,13 +21,13 @@ open class HomeController(@Inject private val homeService: HomeService, @Inject 
 
     private val logger = LoggerFactory.getLogger(HomeController::class.java)
 
-    @Get("/")
+    @Get("/simple")
     fun get(): HttpResponse<*> {
         logger.info("Yep! I'm actually logging stuff despite all this graalvm limitations!")
         return HttpResponse.badRequest(mapOf("message" to "Hello world! ${homeService.giveFive()}"))
     }
 
-    @Get("/test")
+    @Get("/")
     fun getTest(): HttpResponse<*> {
         logger.info("Yep! I'm actually logging stuff despite all this graalvm limitations!")
         dynamoDbClient.putItem { builder ->
